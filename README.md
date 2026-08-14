@@ -12,6 +12,10 @@ Scripts are intended to be run sequentially. Use:
 
 <details>
 <summary>ℹ️ Note:</summary>
-For scRNA-seq, which uses salmon alevin, we need to use the longer version of the available GTF files (e.g., Mus_musculus.GRCm38.95.chr_patch_hapl_scaff.gtf rather than Mus_musculus.GRCm38.95.gtf). For bulk RNA-seq, `tximport()` handles any discrepancies between FASTA and GTF - for example, filtering rows that aren't in both files. Salmon alevin, however, requires exact matching. For that reason, we also need to ensure that our tx2gene has transcript versions appended. The ensembldb approach in [scripts/get_tx2gene_bulk_rnaseq.R](scripts/get_tx2gene_bulk_rnaseq.R) is suitable for bulk RNA-seq, but we can instead use [scripts/get_tx2gene_scrnaseq.R](scripts/get_tx2gene_scrnaseq.R) to generate the scRNA-seq tx2gene tsv file.
+For scRNA-seq, which uses salmon alevin, we need to use the longer version of the available GTF files (e.g., Mus_musculus.GRCm38.95.chr_patch_hapl_scaff.gtf rather than Mus_musculus.GRCm38.95.gtf). 
+
+For bulk RNA-seq, `tximport()` handles any discrepancies between FASTA and GTF - for example, filtering rows that aren't in both files. Salmon alevin, however, requires exact matching. For that reason, we also need to ensure that our tx2gene has transcript versions appended. 
+
+The ensembldb approach in scripts/get_tx2gene_bulk_rnaseq.R is suitable for bulk RNA-seq, but we can instead use scripts/get_tx2gene_scrnaseq.R to generate the scRNA-seq tx2gene tsv file.
 
 </details>
