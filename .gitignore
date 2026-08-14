@@ -3,3 +3,7 @@ data/
 
 # txome indices themselves
 index/
+
+# renv
+renv/library
+renv/staging
