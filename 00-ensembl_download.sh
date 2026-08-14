@@ -18,8 +18,17 @@ gtf_directory=data/gtf
 mkdir ${gtf_directory}
 
 # wget for the following organisms: human, mouse, zebrafish, dog
+# for bulk RNA-seq (tximport)
 wget --directory-prefix=${gtf_directory} ftp://ftp.ensembl.org/pub/release-95/gtf/homo_sapiens/Homo_sapiens.GRCh38.95.gtf.gz
 wget --directory-prefix=${gtf_directory} ftp://ftp.ensembl.org/pub/release-95/gtf/mus_musculus/Mus_musculus.GRCm38.95.gtf.gz
 wget --directory-prefix=${gtf_directory} ftp://ftp.ensembl.org/pub/release-95/gtf/danio_rerio/Danio_rerio.GRCz11.95.gtf.gz
 wget --directory-prefix=${gtf_directory} ftp://ftp.ensembl.org/pub/release-95/gtf/canis_familiaris/Canis_familiaris.CanFam3.1.95.gtf.gz
+gunzip ${gtf_directory}/*
+
+# wget for the following orgnaisms: human, mouse, zebrafish, dog
+# for scRNA-seq (salmon alevin); note: dog does not have a larger scaff file so it is the same as above
+wget --directory-prefix=${gtf_directory} ftp://ftp.ensembl.org/pub/release-95/gtf/homo_sapiens/Homo_sapiens.GRCh38.95.chr_patch_hapl_scaff.gtf.gz
+wget --directory-prefix=${gtf_directory} ftp://ftp.ensembl.org/pub/release-95/gtf/mus_musculus/Mus_musculus.GRCm38.95.chr_patch_hapl_scaff.gtf.gz
+wget --directory-prefix=${gtf_directory} ftp://ftp.ensembl.org/pub/release-95/gtf/danio_rerio/Danio_rerio.GRCz11.95.chr_patch_hapl_scaff.gtf.gz
+#wget --directory-prefix=${gtf_directory} ftp://ftp.ensembl.org/pub/release-95/gtf/canis_familiaris/Canis_familiaris.CanFam3.1.95.gtf.gz
 gunzip ${gtf_directory}/*
